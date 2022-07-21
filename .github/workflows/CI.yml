@@ -19,5 +19,5 @@ jobs:
     steps:
       - name: Install
         run: |
-          md5sum $(which nettop)
-          md5sum $(which ls)
+          md5 $(which nettop)
+          md5 $(which ls)

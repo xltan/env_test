@@ -11,13 +11,12 @@ jobs:
       fail-fast: false
       matrix:
         settings:
-          - host: macos-11
-          - host: macos-10.15
-          - host: macos-12
+          - host: windows-2016
+          - host: windows-2019
+          - host: windows-2022
     name: hi
     runs-on: ${{ matrix.settings.host }}
     steps:
-      - name: Install
+      - name: Command
         run: |
-          md5 $(which nettop)
-          md5 $(which ls)
+          Get-WmiObject -Query "Select Name,readtransfercount,processid from Win32_PROCESS"
